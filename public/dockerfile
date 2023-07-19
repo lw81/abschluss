@@ -1,0 +1,29 @@
+# Set the base image to use for Node.js
+FROM node:14 as build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the package.json and package-lock.json files to the container
+COPY package.json package-lock.json ./
+
+# Install the dependencies
+RUN npm i
+
+# Copy the rest of the application source code to the container
+COPY . .
+
+# Build the frontend application
+RUN npm run build
+
+# Use NGINX to serve the frontend application
+FROM nginx:alpine
+
+# Copy the built frontend files from the previous stage to the NGINX root directory
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Expose port 80 for the NGINX server
+EXPOSE 80
+
+# Start the NGINX server
+CMD ["nginx", "-g", "daemon off;"]

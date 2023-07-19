@@ -1,0 +1,21 @@
+# Set the base image to use for Node.js
+FROM node:14
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the package.json and package-lock.json files to the container
+COPY package.json package-lock.json ./
+
+# Install the dependencies
+RUN npm i
+RUN npm update bcrypt
+
+# Copy the rest of the application source code to the container
+COPY . .
+
+# Expose port 5000 for the Node.js server
+EXPOSE 5000
+
+# Start the Node.js server
+CMD ["npm", "start"]
