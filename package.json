@@ -1,0 +1,15 @@
+{
+  "name": "abschluss",
+  "version": "1.0.0",
+  "description": "Snappy is a chat application build with the power of MERN (MongoDB, Express, React, Node.js) Stack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "abschluss"
+  },
+  "author": "",
+  "license": "ISC"
+}
