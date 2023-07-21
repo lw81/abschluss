@@ -3,7 +3,7 @@ services:
   frontend:
     build: ./public
     ports:
-      - "80:80"
+      - "3000:3000"
     depends_on:
       - backend
 
@@ -16,12 +16,11 @@ services:
     depends_on:
       - mongodb
 
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
+  nginx:
+    image: nginx
     volumes:
-      - mongodb_data:/data/db
-
-volumes:
-  mongodb_data:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
