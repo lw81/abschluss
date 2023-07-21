@@ -13,9 +13,7 @@ services:
       - "5000:5000"
     environment:
       - MONGO_URL=mongodb+srv://christianfleischhauer007:rPzDVDi7YUgsN7vj@cluster0.wimqjvk.mongodb.net/
-    depends_on:
-      - MONGO_URL
-
+      
   nginx:
     image: nginx
     volumes:
