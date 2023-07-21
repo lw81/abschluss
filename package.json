@@ -11,5 +11,8 @@
     "url": "abschluss"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.4.0"
+  }
 }
