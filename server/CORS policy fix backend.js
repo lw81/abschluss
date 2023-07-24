@@ -1,23 +1,19 @@
 const express = require('express');
 const cors = require('cors'); // Import the cors package
-
 const app = express();
 
-// Enable CORS for the specified frontend URL (http://localhost:3000)
-const frontendURL = 'http://localhost:3000';
-const corsOptions = {
-  origin: frontendURL,
-};
+// Enable CORS for all routes
+app.use(cors());
 
-app.use(cors(corsOptions));
-
-// Define your routes here
-// For example:
+// Define your backend routes here (this is just an example)
 app.get('/api/data', (req, res) => {
-  res.json({ message: 'Hello from backend!' });
+  const data = { message: 'This is data from the backend!' };
+  res.json(data);
 });
 
-const PORT = 5000;
+// ... Your other backend routes ...
+
+const PORT = 5000; // or any other port you are using
 app.listen(PORT, () => {
-  console.log(`Backend server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
